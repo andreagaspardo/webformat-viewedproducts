@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2016 Webformat S.r.l.
+http://www.webformat.com
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+<config>
+    <modules>
+        <Webformat_ViewedProducts>
+            <version>0.8.0</version>
+        </Webformat_ViewedProducts>
+    </modules>
+    <global>
+        <helpers>
+            <webformat_viewedproducts>
+                <class>Webformat_ViewedProducts_Helper</class>
+            </webformat_viewedproducts>
+        </helpers>
+        <blocks>
+            <webformat_viewedproducts>
+                <class>Webformat_ViewedProducts_Block</class>
+            </webformat_viewedproducts>
+            <customer>
+                <rewrite>
+                    <account_navigation>Webformat_ViewedProducts_Block_Customer_Account_Navigation</account_navigation>
+                </rewrite>
+            </customer>
+        </blocks>
+        <resources>
+            <webformat_viewedproducts_setup>
+                <setup>
+                    <module>Webformat_ViewedProducts</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </webformat_viewedproducts_setup>
+        </resources>
+        <models>
+            <webformat_viewedproducts>
+                <class>Webformat_ViewedProducts_Model</class>
+                <resourceModel>webformat_viewedproducts_resource</resourceModel>
+            </webformat_viewedproducts>
+            <webformat_viewedproducts_resource>
+                <class>Webformat_ViewedProducts_Model_Resource</class>
+                <entities>
+                    <viewedProduct>
+                        <table>webformat_viewedproducts_entity</table>
+                    </viewedProduct>
+                    <test>
+                        <table>webformat_viewedproducts_test</table>
+                    </test>
+                </entities>
+            </webformat_viewedproducts_resource>
+        </models>
+    </global>
+    <admin>
+        <routers>
+            <webformat_viewedproducts>
+                <use>admin</use>
+                <args>
+                    <module>Webformat_ViewedProducts</module>
+                    <frontName>viewedproducts</frontName>
+                </args>
+            </webformat_viewedproducts>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <webformat_viewedproducts>
+                    <file>webformat/viewedproducts.xml</file>
+                </webformat_viewedproducts>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <webformat_viewedproducts>
+                    <files>
+                        <default>webformat/adminhtml/Webformat_ViewedProducts.csv</default>
+                    </files>
+                </webformat_viewedproducts>
+            </modules>
+        </translate>
+    </adminhtml>
+    <crontab>
+        <jobs>
+            <webformat_viewedproducts_check>
+                <schedule>
+                    <!-- Consume the queue every minute -->
+                    <cron_expr>*/10 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>webformat_viewedproducts/cron::checkData</model>
+                </run>
+            </webformat_viewedproducts_check>
+        </jobs>
+    </crontab>
+    <frontend>
+        <events>
+            <catalog_controller_product_view>
+                <observers>
+                    <webformat_viewedproducts>
+                        <type>model</type>
+                        <class>webformat_viewedproducts/catalog_product_view_observer</class>
+                        <method>productViewed</method>
+                    </webformat_viewedproducts>
+                </observers>
+            </catalog_controller_product_view>
+        </events>
+        <layout>
+            <updates>
+                <webformat_viewedproducts>
+                    <file>webformat/viewedproducts.xml</file>
+                </webformat_viewedproducts>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <webformat_viewedproducts>
+                    <files>
+                        <default>webformat/Webformat_ViewedProducts.csv</default>
+                    </files>
+                </webformat_viewedproducts>
+            </modules>
+        </translate>
+        <routers>
+            <webformat_viewedproducts>
+                <use>standard</use>
+                <args>
+                    <module>Webformat_ViewedProducts</module>
+                    <frontName>viewedproducts</frontName>
+                </args>
+            </webformat_viewedproducts>
+        </routers>
+    </frontend>
+    <default>
+        <webformat_viewedproducts>
+            <global>
+                <enabled>0</enabled>
+            </global>
+        </webformat_viewedproducts>
+    </default>
+</config>

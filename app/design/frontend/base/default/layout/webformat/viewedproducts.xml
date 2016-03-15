@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+Copyright (C) 2016 Webformat S.r.l.
+http://www.webformat.com
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+<layout version="0.1.0">
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="webformat_viewedproducts" ifconfig="webformat_viewedproducts/global/enabled">
+                <name>products</name>
+                <path>viewedproducts/list</path>
+                <label>Viewed products</label>
+            </action>
+            <action method="removeLink">
+                <name>downloadable_products</name>
+            </action>
+        </reference>
+    </customer_account>
+    <webformat_viewedproducts_list_index translate="label">
+        <label>Viewed products</label>
+        <update handle="customer_account"/>
+            <reference name="my.account.wrapper">
+            <block type="webformat_viewedproducts/customer_products_list"
+                name="webformat_viewedproducts_customer_products_list"
+                as="viewedproducts.customer.products.list"
+                template="webformat/viewedproducts/customer/products/list.phtml"/>
+        </reference>
+    </webformat_viewedproducts_list_index>
+</layout>
