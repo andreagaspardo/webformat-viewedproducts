@@ -22,11 +22,15 @@
 /**
  * Test frontend controller.
  */
-class Webformat_ViewedProducts_TestController extends Mage_Core_Controller_Front_Action {
+class Webformat_ViewedProducts_TestController extends Mage_Core_Controller_Front_Action
+{
     /**
      * Display customer viewed products.
      */
     public function indexAction() {
+        $this->loadLayout();
+        $this->renderLayout();
+        return;
         echo '<pre>';
         $model = Mage::getModel("webformat_viewedproducts/viewedProduct");
         echo get_class($model) . PHP_EOL;
