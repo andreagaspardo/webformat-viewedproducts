@@ -23,6 +23,10 @@
  * Webformat Viewed products helper.
  */
 class Webformat_ViewedProducts_Helper_Data extends Mage_Core_Helper_Abstract {
+    public function getHelperData() {
+        return "Helper data";
+    }
+
     /**
      * Check data from cron.
      */

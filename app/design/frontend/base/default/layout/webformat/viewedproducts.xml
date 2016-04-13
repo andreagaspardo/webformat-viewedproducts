@@ -17,9 +17,30 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 -->
 <layout version="0.1.0">
+    <webformat_viewedproducts_test_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="core/text" after="-" as="vp" name="vp">
+                <action method="setText">
+                    <text>Esempio di testo da setText</text>
+                </action>
+            </block>
+            <block type="core/template" after="vp" as="vp1" name="vp1"
+                   template="webformat/viewedproducts/vp1.phtml"/>
+            <block template="webformat/viewedproducts/vp-custom.phtml"
+                    type="webformat_viewedproducts/test"/>
+        </reference>
+    </webformat_viewedproducts_test_index>
+
+
     <customer_account>
         <reference name="customer_account_navigation">
-            <action method="addLink" translate="label" module="webformat_viewedproducts" ifconfig="webformat_viewedproducts/global/enabled">
+            <action method="addLink" translate="label" module="webformat_viewedproducts"
+                    ifconfig="webformat_viewedproducts/global/enabled">
                 <name>products</name>
                 <path>viewedproducts/list</path>
                 <label>Viewed products</label>
@@ -32,11 +53,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
     <webformat_viewedproducts_list_index translate="label">
         <label>Viewed products</label>
         <update handle="customer_account"/>
-            <reference name="my.account.wrapper">
+        <reference name="my.account.wrapper">
             <block type="webformat_viewedproducts/customer_products_list"
-                name="webformat_viewedproducts_customer_products_list"
-                as="viewedproducts.customer.products.list"
-                template="webformat/viewedproducts/customer/products/list.phtml"/>
+                   name="webformat_viewedproducts_customer_products_list"
+                   as="viewedproducts.customer.products.list"
+                   template="webformat/viewedproducts/customer/products/list.phtml"/>
         </reference>
     </webformat_viewedproducts_list_index>
 </layout>
