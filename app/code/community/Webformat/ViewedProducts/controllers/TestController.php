@@ -13,7 +13,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
+ * You should have received a copy f the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 ?>
@@ -29,7 +29,17 @@ class Webformat_ViewedProducts_TestController extends Mage_Core_Controller_Front
      */
     public function indexAction() {
         $this->loadLayout();
+
+        /* var $product Mage_Catalog_Model_Product */
+        $product = Mage::getModel('catalog/product');
+
+        echo $a->getPippoPTopoluto();
+
+        die;
+
         $this->renderLayout();
+
+
         return;
         echo '<pre>';
         $model = Mage::getModel("webformat_viewedproducts/viewedProduct");
@@ -59,5 +69,25 @@ class Webformat_ViewedProducts_TestController extends Mage_Core_Controller_Front
             echo get_class($item) . "\n";
         }
         echo '</pre>';
+    }
+
+
+    public function modelsAction() {
+        // Stampiamo i dati dello store 2
+        $store = Mage::getModel('core/store')->load(2);
+        echo '<pre>';
+        print_r($store->getData());
+/*        Mage::getModel('webformat_viewedproducts/viewedProduct')
+           ->setCustomerId(25)->setProductId(232)->save();
+*/
+
+        $collection = Mage::getResourceModel('webformat_viewedproducts/viewedProduct_collection');
+        $collection->addFieldToFilter('product_id', 232);
+        echo $collection->getSelect()->assemble();
+
+        foreach ($collection as $item) {
+            print_r($item->getData());
+        }
+
     }
 }

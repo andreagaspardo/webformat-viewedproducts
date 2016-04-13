@@ -38,17 +38,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
                 </rewrite>
             </customer>
         </blocks>
-        <resources>
-            <webformat_viewedproducts_setup>
-                <setup>
-                    <module>Webformat_ViewedProducts</module>
-                    <class>Mage_Core_Model_Resource_Setup</class>
-                </setup>
-                <connection>
-                    <use>core_setup</use>
-                </connection>
-            </webformat_viewedproducts_setup>
-        </resources>
         <models>
             <webformat_viewedproducts>
                 <class>Webformat_ViewedProducts_Model</class>
@@ -66,6 +55,17 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
                 </entities>
             </webformat_viewedproducts_resource>
         </models>
+        <resources>
+            <webformat_viewedproducts_setup>
+                <setup>
+                    <module>Webformat_ViewedProducts</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </webformat_viewedproducts_setup>
+        </resources>
     </global>
     <admin>
         <routers>
