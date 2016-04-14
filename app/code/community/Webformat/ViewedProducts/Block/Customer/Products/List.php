@@ -29,6 +29,10 @@ class Webformat_ViewedProducts_Block_Customer_Products_List extends Mage_Core_Bl
     public function getItems() {
         /* @var $collection Webformat_ViewedProducts_Model_Resource_ViewedProduct_Collection */
         $collection = Mage::getResourceModel("webformat_viewedproducts/viewedProduct_collection");
+
+        /* @var $collection Webformat_ViewedProducts_Model_Resource_ViewedProduct_Collection */
+        $collection = Mage::getModel("webformat_viewedproducts/viewedProduct")->getCollection();
+
         /* @var $session Mage_Customer_Model_Session */
         $session = Mage::getSingleton('customer/session');
 
