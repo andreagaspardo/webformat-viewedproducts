@@ -22,7 +22,8 @@
 /**
  * Webformat viewedproducts block adminhtml viewedproducts.
  */
-class Webformat_ViewedProducts_Block_Adminhtml_ViewedProducts extends Mage_Adminhtml_Block_Widget_Grid_Container {
+class Webformat_ViewedProducts_Block_Adminhtml_ViewedProducts
+    extends Mage_Adminhtml_Block_Widget_Grid_Container {
     /**
      * Construct the block.
      */

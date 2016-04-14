@@ -69,13 +69,13 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
     </global>
     <admin>
         <routers>
-            <webformat_viewedproducts>
-                <use>admin</use>
+            <adminhtml>
                 <args>
-                    <module>Webformat_ViewedProducts</module>
-                    <frontName>viewedproducts</frontName>
+                    <modules>
+                        <webformat_viewedproducts before="Mage_Adminhtml">Webformat_ViewedProducts_Adminhtml</webformat_viewedproducts>
+                    </modules>
                 </args>
-            </webformat_viewedproducts>
+            </adminhtml>
         </routers>
     </admin>
     <adminhtml>

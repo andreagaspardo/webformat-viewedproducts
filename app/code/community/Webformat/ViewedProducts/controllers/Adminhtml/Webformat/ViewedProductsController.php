@@ -22,7 +22,7 @@
 /**
  * Viewed products controller.
  */
-class Webformat_ViewedProducts_Adminhtml_ViewedProductsController extends Mage_Adminhtml_Controller_Action {
+class Webformat_ViewedProducts_Adminhtml_Webformat_ViewedProductsController extends Mage_Adminhtml_Controller_Action {
 
 	/**  Index. */
 	public function indexAction() {

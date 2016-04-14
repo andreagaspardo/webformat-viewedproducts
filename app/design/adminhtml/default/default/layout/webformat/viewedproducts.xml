@@ -17,19 +17,19 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 -->
 <layout version="0.1.0">
-    <webformat_viewedproducts_adminhtml_viewedproducts_index>
+    <adminhtml_webformat_viewedproducts_index>
         <reference name="content">
             <block type="webformat_viewedproducts/adminhtml_viewedProducts" name="webformat.viewedproducts.products" />
         </reference>
-    </webformat_viewedproducts_adminhtml_viewedproducts_index>
-    <webformat_viewedproducts_adminhtml_viewedproducts_grid>
+    </adminhtml_webformat_viewedproducts_index>
+    <adminhtml_webformat_viewedproducts_grid>
         <reference name="content">
             <block type="webformat_viewedproducts/adminhtml_viewedProducts_grid" name="webformat.viewedproducts.products.grid" output="toHtml"/>
         </reference>
-    </webformat_viewedproducts_adminhtml_viewedproducts_grid>
-    <webformat_viewedproducts_adminhtml_viewedproducts_view>
+    </adminhtml_webformat_viewedproducts_grid>
+    <adminhtml_webformat_viewedproducts_view>
         <reference name="content">
             <block type="webformat_viewedproducts/adminhtml_viewedProducts_view" name="webformat_viewedproducts_adminhtml_viewedProducts_view"></block>
         </reference>
-    </webformat_viewedproducts_adminhtml_viewedproducts_view>
+    </adminhtml_webformat_viewedproducts_view>
 </layout>

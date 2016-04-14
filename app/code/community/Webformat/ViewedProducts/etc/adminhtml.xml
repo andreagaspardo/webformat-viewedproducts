@@ -23,7 +23,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
                 <webformat_viewedproducts translate="title" module="webformat_viewedproducts">
                     <title>Product viewed by customers</title>
                     <sort_order>1000</sort_order>
-                    <action>webformat_viewedproducts/adminhtml_viewedProducts</action>
+                    <action>adminhtml/webformat_viewedProducts</action>
                 </webformat_viewedproducts>
             </children>
         </customer>

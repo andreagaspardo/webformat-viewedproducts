@@ -10,6 +10,15 @@ class Webformat_ViewedProducts_Model_Api2_Summary_Rest_Admin_V1 extends Webforma
 {
     public function _retrieve()
     {
-        return array('viewed_products' => 23);
+        return array('viewed_products' => $this->getSum());
+    }
+
+    public function getSum() {
+        $collection = Mage::getModel('webformat_viewedproducts/viewedProduct')
+            ->getCollection();
+        $collection->getSelect()->columns('sum(visit_count) as s');
+        foreach ($collection as $item) {
+            return $item->getS();
+        }
     }
 }
